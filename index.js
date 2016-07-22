@@ -60,7 +60,7 @@ function createWindow () {
   mainWindow.setMenu(Menu.buildFromTemplate(template))
 
   // devtools
-  mainWindow.webContents.openDevTools({mode: 'detach'})
+  // mainWindow.webContents.openDevTools({mode: 'detach'})
 
   // load app
   mainWindow.loadURL(`https://app.catch.cc`)
