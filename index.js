@@ -9,14 +9,14 @@ const BrowserWindow = electron.BrowserWindow
 let mainWindow
 
 function createWindow () {
-  // Create the browser window.
   mainWindow = new BrowserWindow({width: 540, height: 960})
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(`https://app.catch.cc`)
+  // hide menu bar
+  mainWindow.setMenuBarVisibility(false)
+  mainWindow.setAutoHideMenuBar(true)
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  // load app
+  mainWindow.loadURL(`https://app.catch.cc`)
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -48,6 +48,3 @@ app.on('activate', function () {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
