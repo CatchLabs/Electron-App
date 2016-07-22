@@ -10,7 +10,7 @@ let mainWindow
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 540,
+    width: 540 + 16, // 16 to disable the scroll bar
     height: 960,
     resizable: false,
     webPreferences: {
@@ -21,6 +21,8 @@ function createWindow () {
   // hide menu bar
   mainWindow.setMenuBarVisibility(false)
   mainWindow.setAutoHideMenuBar(true)
+
+  mainWindow.webContents.openDevTools({mode: 'detach'})
 
   // load app
   mainWindow.loadURL(`https://app.catch.cc`)
