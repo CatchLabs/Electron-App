@@ -10,18 +10,20 @@ let mainWindow
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 540 + 16, // 16 to disable the scroll bar
+    width: 640 + 16, // 16 to disable the scroll bar
     height: 960,
     resizable: false,
+    icon: __dirname + '/icon.png',
     webPreferences: {
       overlayScrollbars: false
     }
   })
 
-  // hide menu bar
-  mainWindow.setMenuBarVisibility(false)
-  mainWindow.setAutoHideMenuBar(true)
+  // show menu bar
+  mainWindow.setMenuBarVisibility(true)
+  mainWindow.setAutoHideMenuBar(false)
 
+  // devtools
   mainWindow.webContents.openDevTools({mode: 'detach'})
 
   // load app
