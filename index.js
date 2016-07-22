@@ -9,7 +9,14 @@ const BrowserWindow = electron.BrowserWindow
 let mainWindow
 
 function createWindow () {
-  mainWindow = new BrowserWindow({width: 540, height: 960})
+  mainWindow = new BrowserWindow({
+    width: 540,
+    height: 960,
+    resizable: false,
+    webPreferences: {
+      overlayScrollbars: false
+    }
+  })
 
   // hide menu bar
   mainWindow.setMenuBarVisibility(false)
