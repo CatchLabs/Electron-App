@@ -2,6 +2,9 @@
   "name": "electron-app",
   "version": "0.1.0",
   "description": "Desktop App.",
+  "build": {
+    "appId": "cc.catch.desktop"
+  },
   "main": "index.js",
   "scripts": {
     "start": "electron ."
@@ -10,13 +13,19 @@
     "type": "git",
     "url": "git+https://github.com/CatchLabs/Electron-App.git"
   },
-  "author": "CatchLabs",
+  "author": {
+    "name": "CatchLabs",
+    "email": "info@entropy.cool"
+  },
   "bugs": {
     "url": "https://github.com/CatchLabs/Electron-App/issues"
   },
   "homepage": "https://github.com/CatchLabs/Electron-App#readme",
   "dependencies": {
-    "electron-json-storage": "^2.0.0",
+    "electron-json-storage": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^5.16.0",
     "electron-prebuilt": "^1.2.8"
   }
 }
