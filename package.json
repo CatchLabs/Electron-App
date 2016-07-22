@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/CatchLabs/Electron-App#readme",
   "dependencies": {
+    "electron-json-storage": "^2.0.0",
     "electron-prebuilt": "^1.2.8"
   }
 }

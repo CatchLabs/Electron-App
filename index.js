@@ -1,5 +1,7 @@
 const electron = require('electron')
-// Module to control application life.
+
+const Menu = electron.Menu
+
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
@@ -23,11 +25,46 @@ function createWindow () {
   mainWindow.setMenuBarVisibility(true)
   mainWindow.setAutoHideMenuBar(false)
 
+
+  const template = [
+    {
+      label: 'Open',
+      submenu: [
+        {
+          label: 'Catch Desktop (中国)',
+          click() {
+            mainWindow.loadURL(`https://app.catch.cc`)
+            mainWindow.setTitle('Catch Desktop')
+          }
+        },
+        {
+          label: 'Catch Desktop (海外)',
+          click() {
+            mainWindow.loadURL(`https://app.catchcdn.com`)
+            mainWindow.setTitle('Catch Desktop (海外)')
+          }
+        }
+      ]
+    },
+    {
+      role: 'help',
+      submenu: [
+        {
+          label: 'About Catch',
+          click() { require('electron').shell.openExternal('https://catch.cc/'); }
+        },
+      ]
+    },
+  ];
+
+  mainWindow.setMenu(Menu.buildFromTemplate(template))
+
   // devtools
   mainWindow.webContents.openDevTools({mode: 'detach'})
 
   // load app
   mainWindow.loadURL(`https://app.catch.cc`)
+  mainWindow.setTitle('Catch Desktop')
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -36,6 +73,8 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  mainWindow.on('page-title-updated', (e) => e.preventDefault())
 }
 
 // This method will be called when Electron has finished
