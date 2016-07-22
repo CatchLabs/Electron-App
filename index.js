@@ -51,8 +51,12 @@ function createWindow () {
       submenu: [
         {
           label: 'About Catch',
-          click() { require('electron').shell.openExternal('https://catch.cc/'); }
+          click() { electron.shell.openExternal('https://catch.cc/') }
         },
+        {
+          label: '联系我们',
+          click() { electron.shell.openExternal('https://catch.cc/contact.html') }
+        }
       ]
     },
   ];
