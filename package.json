@@ -28,5 +28,6 @@
   "devDependencies": {
     "electron-builder": "^5.16.0",
     "electron-prebuilt": "^1.2.8"
-  }
+  },
+  "private": true
 }
